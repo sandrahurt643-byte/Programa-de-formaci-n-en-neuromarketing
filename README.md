@@ -1,0 +1,1 @@
+El objetivo es mejorar la comercialización de los productores apicolas del nuestro santafesino a través de herramientas de neuromarketing prototipadas en una plataforma digital. La Marca de dicha plataforma es LARSH Academy
