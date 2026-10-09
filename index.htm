@@ -632,15 +632,24 @@
         <h2 id="lesson-title">Packaging</h2>
       </div>
 
-      <div class="video-box" id="video-box">
-        <div class="grain"></div>
-        <button class="play-btn" id="btn-play" aria-label="Reproducir video">
-          <svg viewBox="0 0 24 24" fill="#3A2408"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <span class="video-caption" id="video-label">Cómo elegir el envase y la etiqueta</span>
-      </div>
-      <div class="video-demo-note">Video de muestra para probar el funcionamiento — se reemplaza por el video real de cada módulo.</div>
+      <div class="video-modulo">
+  <video controls playsinline preload="metadata">
+    <source src="video-modulo1.mp4" type="video/mp4">
+    Tu navegador no puede reproducir este video.
+  </video>
+</div>
 
+<style>
+  .video-modulo {
+    max-width: 320px;
+    margin: 16px auto;
+  }
+  .video-modulo video {
+    width: 100%;
+    border-radius: 12px;
+    background: #000;
+  }
+</style>
       <div class="lesson-summary">
         <p id="lesson-summary-text">"El envase vende antes que la palabra."</p>
       </div>
