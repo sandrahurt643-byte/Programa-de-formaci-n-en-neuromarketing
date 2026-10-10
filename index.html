@@ -631,13 +631,10 @@
         <div class="lesson-tag" id="lesson-tag">Módulo 1</div>
         <h2 id="lesson-title">Packaging</h2>
       </div>
-
-      <div class="video-modulo">
-  <video controls playsinline preload="metadata">
-    <source src="video-modulo1.mp4" type="video/mp4">
-    Tu navegador no puede reproducir este video.
-  </video>
+<div class="video-modulo" id="video-modulo">
+  <video id="video-lesson" controls playsinline preload="metadata"></video>
 </div>
+      
 
 <style>
   .video-modulo {
@@ -689,7 +686,7 @@
 </div>
 
 <div class="activity-cta">
-  <button class="btn btn-primary btn-block" <button class="btn btn-primary btn-block" id="btn-send-activity">
+  <button class="btn btn-primary btn-block" id="btn-send-activity">
   Enviar por WhatsApp
   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -818,6 +815,7 @@ const MODULES = [
     videoLabel: "Cómo elegir el envase y la etiqueta",
     videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
     summary: "El envase vende antes que la palabra.",
+    videoFile: "video-modulo1.mp4",
     exampleWho: "Doña Miel",
     exampleText: "Cambió el frasco genérico por uno de vidrio con etiqueta propia, con el nombre del paraje y el color de la miel de monte. En la feria empezaron a preguntarle por el frasco antes que por el precio.",
     mascotTip: "Fijate en la luz: la miel se ve más rica en frascos de vidrio transparente.",
@@ -1146,6 +1144,17 @@ function openLesson(moduleId){
   document.getElementById("example-who").textContent = m.exampleWho;
   document.getElementById("example-text").textContent = m.exampleText;
   document.getElementById("example-icon-holder").innerHTML = ICONS[m.iconKey];
+    const vm = document.getElementById("video-modulo");
+  const v = document.getElementById("video-lesson");
+  if(m.videoFile){
+    v.src = m.videoFile;
+    vm.style.display = "block";
+  }else{
+    v.pause();
+    v.removeAttribute("src");
+    v.load();
+    vm.style.display = "none";
+  } 
   goTo("lesson");
  }catch(err){
   console.error("Error al abrir la lección:", err);
