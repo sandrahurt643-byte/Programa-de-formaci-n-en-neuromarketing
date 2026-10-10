@@ -674,31 +674,31 @@
     <section class="screen" id="screen-activity">
       <div class="activity-head">
         <div class="lesson-tag" id="activity-tag">Módulo 1 · Actividad</div>
-        <h2 id="activity-title">Foto del envase</h2>
-        <p id="activity-desc">Sacá una foto de tu envase actual y otra idea de cómo lo mejorarías. No hace falta que sea perfecta, con el celular alcanza.</p>
+        <h2 id="activity-title">Imagen del envase</h2>
+       <p id="activity-desc">Buscá en tu galería una imagen del envase que usás hoy para tu miel (frasco, bidón, tambor o balde). Después buscá otra con una idea de cómo te gustaría presentarla. Sirve tanto si vendés a granel y querés probar con una parte fraccionada, como si ya vendés directo y querés mejorar. No hace falta que sea perfecta.</p> 
       </div>
 
       <div id="activity-body"></div>
 
-      <div Clase="WhatsApp-nota">
-  <svg viewBox="0 0 24 24" relleno="ninguno" Golpe="actualColor" Ancho de carrera="2" Stroke-linecap="Ronda">
-    <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" Stroke-linejoin="Ronda" Ancho de carrera="2.6" />
+     <div class="whatsapp-note">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
   </svg>
-  <p>Al tocar <b>enviar</b> se abre WhatsApp con un mensaje listo. Adjuntá la foto o el video que acabás de preparar.</p>
-  <p style="margin-top: 10px; font-weight: bold;">Chatea en WhatsApp con el +54 9 3482 623344</p>
+  <p>Al tocar <b>enviar</b> se abre WhatsApp con un mensaje listo. Adjuntá la imagen que acabás de elegir.</p>
+  <p style="margin-top: 10px; font-weight: bold;">Chateá en WhatsApp con el +54 9 3482 623344</p>
 </div>
 
-<div Clase="Actividad-CTA">
-  <botón Clase="BTN BTN-bloque principal BTN" id="BTN-send-activity">
-    <a href="https://wa.me/549348623344?text=Hola!%20Adjunto%20la%20actividad%20del%20Módulo%201%20de%20LARSH%20Academy" style="color: inherit; text-decoration: none; display: block;">
+<div class="activity-cta">
+  <button class="btn btn-primary btn-block" id="btn-send-activity">
+    <a href="https://wa.me/5493482623344?text=Hola!%20Adjunto%20la%20actividad%20del%20M%C3%B3dulo%201%20de%20LARSH%20Academy" style="color: inherit; text-decoration: none;">
       Enviar por WhatsApp
     </a>
-    <svg Anchura="17" Altura="17" viewBox="0 0 24 24" relleno="ninguno" Golpe="actualColor" Ancho de carrera="2.6" Stroke-linecap="Ronda">
-      <path d="M5 12h14M12 5l7 7-7 7" Stroke-linejoin="Ronda" />
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
     </svg>
-  </botón>
+  </button>
 </div>
-
+</section>
     <!-- PANTALLA 5: PROGRESO -->
     <section class="screen" id="screen-progress">
       <div class="progress-badge">
@@ -739,7 +739,7 @@
 /* =========================================================
    CONFIGURACIÓN — editar acá los datos del programa
    ========================================================= */
-const WHATSAPP_NUMBER = "5493482000000"; // TODO: reemplazar por el número real del programa (sin +, sin espacios)
+const WHATSAPP_NUMBER = "5493482623344"; // TODO: reemplazar por el número real del programa (sin +, sin espacios)
 
 // Red de seguridad: si algo falla, avisa con un toast en vez de dejar la pantalla en blanco
 window.addEventListener("error", (e)=>{
@@ -825,17 +825,17 @@ const MODULES = [
     mascotTip: "Fijate en la luz: la miel se ve más rica en frascos de vidrio transparente.",
     activity: {
       tag: "Actividad · Packaging",
-      title: "Foto del envase",
-      desc: "Sacá una foto de tu envase actual y otra idea de cómo lo mejorarías. No hace falta que sea perfecta, con el celular alcanza.",
+      title: "Imagen del envase",
+         desc: "Buscá en tu galería una imagen del envase que usás hoy para tu miel (frasco, bidón, tambor o balde). Después buscá otra con una idea de cómo te gustaría presentarla. Sirve si vendés a granel y querés probar con una parte fraccionada, o si ya vendés directo y querés mejorar. No hace falta que sea perfecta.",
       type: "photos",
       captures: [
-        {label:"Envase actual"},
-        {label:"Envase mejorado"}
+              {label:"Buscar imagen: envase actual"},
+      {label:"Buscar imagen: envase mejorado"}
       ],
       extraField: "changes",
       extraLabel: "3 cambios concretos que podrías aplicar esta semana",
-      extraPlaceholder: "Ej: cambiar a frasco de vidrio, sumar etiqueta con el nombre del paraje, mejorar la letra del precio",
-      waMessage: "Hola, les mando la actividad del Módulo 1 (Packaging): foto del envase actual, una idea de envase mejorado y los 3 cambios que voy a aplicar."
+         extraPlaceholder: "Ej: pasar una parte a frascos de vidrio, sumar una etiqueta con el nombre del paraje, hacer una prueba chica para vender fraccionado",
+         waMessage: "Hola, les mando la actividad del Módulo 1 (Packaging): imagen de mi envase actual, una idea de envase mejorado y los 3 cambios que podría probar."
     }
   },
   {
@@ -1318,7 +1318,7 @@ document.getElementById("btn-send-activity").addEventListener("click", ()=>{
   progress[m.id] = true;
   saveProgress(progress);
 
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  const url = `https://wa.me/${3482623344}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 
   showToast(`🍯 ¡Actividad de "${m.title}" enviada!`);
