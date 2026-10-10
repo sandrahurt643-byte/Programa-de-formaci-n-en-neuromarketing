@@ -689,14 +689,12 @@
 </div>
 
 <div class="activity-cta">
-  <button class="btn btn-primary btn-block" id="btn-send-activity">
-    <a href="https://wa.me/5493482623344?text=Hola!%20Adjunto%20la%20actividad%20del%20M%C3%B3dulo%201%20de%20LARSH%20Academy" style="color: inherit; text-decoration: none;">
-      Enviar por WhatsApp
-    </a>
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M5 12h14M12 5l7 7-7 7"/>
-    </svg>
-  </button>
+  <button class="btn btn-primary btn-block" <button class="btn btn-primary btn-block" id="btn-send-activity">
+  Enviar por WhatsApp
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
+  </svg>
+</button>
 </div>
 </section>
     <!-- PANTALLA 5: PROGRESO -->
@@ -1136,6 +1134,7 @@ function updateMiniProgress(){
 document.getElementById("mini-progress-link").addEventListener("click", ()=> goTo("progress"));
 
 /* ---------- Pantalla 3: lección ---------- */
+
 function openLesson(moduleId){
  try{
   state.currentModuleId = moduleId;
@@ -1143,32 +1142,16 @@ function openLesson(moduleId){
   if(!m){ showToast("Ese módulo todavía no está disponible."); return; }
   document.getElementById("lesson-tag").textContent = m.num;
   document.getElementById("lesson-title").textContent = m.title;
-  document.getElementById("video-label").textContent = m.videoLabel;
   document.getElementById("lesson-summary-text").textContent = `"${m.summary}"`;
   document.getElementById("example-who").textContent = m.exampleWho;
   document.getElementById("example-text").textContent = m.exampleText;
   document.getElementById("example-icon-holder").innerHTML = ICONS[m.iconKey];
-
-  // reset video box to poster state
-  const vb = document.getElementById("video-box");
-  vb.innerHTML = `
-    <div class="grain"></div>
-    <button class="play-btn" id="btn-play" aria-label="Reproducir video">
-      <svg viewBox="0 0 24 24" fill="#3A2408"><path d="M8 5v14l11-7z"/></svg>
-    </button>
-    <span class="video-caption" id="video-label">${m.videoLabel}</span>
-  `;
-  document.getElementById("btn-play").addEventListener("click", ()=>{
-    vb.innerHTML = `<video controls autoplay playsinline><source src="${m.videoSrc}" type="video/mp4"></video>`;
-  });
-
   goTo("lesson");
  }catch(err){
   console.error("Error al abrir la lección:", err);
   showToast("Uy, no pude abrir este módulo. Probá de nuevo 🍯");
  }
 }
-
 document.getElementById("btn-go-activity").addEventListener("click", ()=>{
   openActivity(state.currentModuleId);
 });
@@ -1208,7 +1191,7 @@ function openActivity(moduleId){
             : '<path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2v11Z"/><circle cx="12" cy="13" r="4"/>'}
         </svg>
         <span>${cap.label}</span>
-        <input type="file" accept="${isVideo ? 'video/*' : 'image/*'}" capture="environment">
+        <input type="file" accept="${isVideo ? 'video/*' : 'image/*'}">
       `;
       const input = card.querySelector("input");
       input.addEventListener("change", ()=>{
@@ -1292,7 +1275,7 @@ function openActivity(moduleId){
  }
 }
 
-document.getElementById("btn-send-activity").addEventListener("click", ()=>{
+document.getElementById("btn-send-activity").addEventListener("click", async ()=>{
   const m = MODULES.find(x=>x.id===state.currentModuleId);
   let message = m.activity.waMessage;
 
@@ -1318,8 +1301,23 @@ document.getElementById("btn-send-activity").addEventListener("click", ()=>{
   progress[m.id] = true;
   saveProgress(progress);
 
-  const url = `https://wa.me/${3482623344}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
+  const files = Array.from(document.querySelectorAll("#activity-body input[type=file]"))
+    .map(i => i.files && i.files[0])
+    .filter(Boolean);
+
+  const abrirChat = () => {
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
+  };
+
+  if(files.length && navigator.canShare && navigator.canShare({files})){
+    try{
+      await navigator.share({files, text: message});
+    }catch(e){
+      if(e.name !== "AbortError") abrirChat();
+    }
+  }else{
+    abrirChat();
+  }
 
   showToast(`🍯 ¡Actividad de "${m.title}" enviada!`);
   goTo("progress");
