@@ -348,7 +348,29 @@
   .example-text p{font-size:13px;margin:4px 0 0;color:var(--brown-soft);line-height:1.4;}
 
   .lesson-cta{padding:22px 20px 4px;margin-top:auto;}
-
+/* ---------- Neuromarketing aplicado ---------- */
+.tool-badge{
+  display:inline-block;margin-top:8px;padding:5px 11px;border-radius:999px;
+  background:var(--honey-light);border:1.5px solid var(--honey);
+  color:var(--brown);font-size:12px;font-weight:700;letter-spacing:.2px;
+}
+.mind-block{
+  margin:16px 20px 0;padding:15px 17px;border-radius:14px;
+  background:var(--card);border:1.5px solid var(--line);border-left:5px solid var(--terracotta);
+}
+.mind-block h4{font-size:13px;font-weight:700;color:var(--terracotta);margin:0 0 6px;}
+.mind-block p{margin:0;font-size:14px;line-height:1.5;color:var(--brown-soft);}
+.nm-slogan{
+  margin:16px 20px 0;padding:12px 14px;border-radius:12px;text-align:center;
+  background:linear-gradient(150deg,#5A3C22,#2E1D10);color:#F5E9CE;
+  font-family:'Fraunces',serif;font-weight:600;font-size:15px;
+}
+.nm-aclaracion{
+  margin:16px 20px 0;padding:14px 16px;border-radius:14px;
+  background:var(--card);border:1.5px dashed var(--honey);
+}
+.nm-aclaracion summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--brown);}
+.nm-aclaracion p{margin:10px 0 0;font-size:13.5px;line-height:1.5;color:var(--brown-soft);}
   /* ---------- Pantalla 4: Actividad ---------- */
   #screen-activity{padding:14px 20px 30px;}
   .activity-head .lesson-tag{font-size:12.5px;font-weight:700;color:var(--terracotta);}
@@ -557,7 +579,10 @@
           <h1>Aprendé a vender tu miel directo, a tu manera.</h1>
           <p>Cuatro módulos cortos y prácticos para presentar tu miel, generar confianza y vender mejor en ferias, mercados y redes. Gratis y a tu ritmo.</p>
         </div>
-
+<details class="nm-aclaracion">
+  <summary>¿Qué tipo de neuromarketing es este?</summary>
+  <p>Mi proyecto es de <strong>neuromarketing aplicado</strong>, no de neuromarketing con equipos. No mido actividad cerebral (EEG, eye-tracking, resonancia). Tomo lo que esa ciencia encontró y lo convierto en herramientas simples para tu producto.</p>
+</details>
         <div class="welcome-panel">
           <div class="mascot-intro">
             <span class="face">🐝</span>
@@ -607,6 +632,14 @@
       <div class="lesson-head">
         <div class="lesson-tag" id="lesson-tag">Módulo 1</div>
         <h2 id="lesson-title">Packaging</h2>
+        <!-- Debajo del <h2> del módulo -->
+<span class="tool-badge">🧠 Herramienta: atención visual</span>
+<div class="mind-block">
+  <h4>¿Qué pasa en la mente del cliente?</h4>
+  <p>El cliente mira el frasco antes de escucharte. En pocos segundos ya empieza a hacerse una idea de tu miel: si es de confianza, si es cara, si le interesa.</p>
+</div>
+
+<div class="nm-slogan">No es magia, es Neuromarketing Aplicado</div>
       </div>
 <div class="video-modulo" id="video-modulo">
   <video id="video-lesson" controls playsinline preload="metadata"></video>
