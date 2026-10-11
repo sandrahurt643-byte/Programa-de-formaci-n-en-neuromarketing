@@ -174,40 +174,17 @@
   .intro-credit{font-size:11.5px;color:var(--brown-soft);opacity:.75;margin-top:12px;}
   .intro-credit b{color:var(--terracotta);}
 
-  /* ---------- Pantalla 0.5: Mi propósito ---------- */
-  #screen-proposito{
-    background:
-      radial-gradient(120% 70% at 15% 0%, #E8C9A0 0%, transparent 60%),
-      radial-gradient(120% 70% at 100% 100%, #D9A468 0%, transparent 55%),
-      linear-gradient(160deg, #F3E1C4 0%, #EAD0A5 45%, #E0BD8C 100%);
-    min-height:100vh;justify-content:center;padding:40px 22px;
-  }
-  .proposito-wrap{max-width:420px;margin:0 auto;}
-  .proposito-emoji{font-size:34px;text-align:center;margin-bottom:6px;}
-  .proposito-title{
-    font-family:'Fraunces',serif;font-weight:700;font-size:22px;letter-spacing:.3px;
-    text-align:center;color:var(--brown);margin-bottom:22px;
-  }
-  .proposito-block{margin-bottom:20px;}
-  .proposito-block .label{
-    font-family:'Fraunces',serif;font-weight:700;font-style:italic;font-size:14.5px;
-    color:var(--terracotta-dark);margin-bottom:5px;
-  }
-  .proposito-block p{
-    font-size:14.5px;line-height:1.55;color:var(--brown);
-  }
-  .proposito-block p b, .proposito-block p em{
-    color:var(--terracotta-dark);font-style:normal;font-weight:700;
-  }
-  .proposito-divider{
-    width:46px;height:2px;background:var(--terracotta);opacity:.5;
-    margin:22px auto;border-radius:2px;
-  }
-  .proposito-closing{
-    text-align:center;font-family:'Fraunces',serif;font-style:italic;font-weight:600;
-    font-size:15.5px;color:var(--terracotta-dark);margin-top:4px;margin-bottom:26px;
-    line-height:1.5;
-  }
+  /* ---------- Pantalla 0.5: Aprende Neuromarketing Conmigo ---------- */
+  <section id="reel">
+  <h2>¡Aprendé neuromarketing conmigo!</h2>
+  <p>Mirá este video corto y conocé de qué se trata el programa.</p>
+
+  <video controls playsinline preload="metadata"
+         style="max-width:100%; width:360px; border-radius:12px; display:block; margin:0 auto;">
+    <source src="reel-neuromarketing.mp4" type="video/mp4">
+    Tu navegador no puede mostrar este video.
+  </video>
+</section>
 
   /* ---------- Pantalla 1: Bienvenida ---------- */
   #screen-welcome{
@@ -651,20 +628,20 @@
         <p id="lesson-summary-text">"El envase vende antes que la palabra."</p>
       </div>
 
-      <div class="example-block">
-        <h4>Un caso para inspirarte</h4>
-        <div class="example-card">
-          <div class="example-photo" id="example-icon-holder"></div>
-          <div class="example-text">
-            <div class="who" id="example-who">Doña Miel</div>
-            <p id="example-text">Cambió el frasco genérico por una etiqueta con el nombre del paraje y el color de la miel de monte. Las ventas en feria subieron.</p>
-          </div>
-        </div>
-      </div>
+     <div class="guia-pdf" style="border:2px solid #f5a623; border-radius:12px; padding:16px; margin:16px 0; text-align:center;">
+  <h3>📘 Guía para productores: Packaging</h3>
+  <p>Descargá la guía del Módulo 1 y usala mientras hacés la actividad.</p>
 
-      <div class="lesson-cta">
-        <button class="btn btn-primary btn-block" id="btn-go-activity">Hacer la actividad</button>
-      </div>
+  <a href="Modulo_1_Packaging_Guia_para_productores.pdf" target="_blank" rel="noopener"
+     style="display:inline-block; background:#f5a623; color:#000; padding:12px 20px; border-radius:8px; text-decoration:none; font-weight:bold; margin:4px;">
+    Ver la guía
+  </a>
+
+  <a href="Modulo_1_Packaging_Guia_para_productores.pdf" download
+     style="display:inline-block; background:#fff; color:#000; border:2px solid #f5a623; padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:bold; margin:4px;">
+    Descargar PDF
+  </a>
+</div>
     </section>
 
     <!-- PANTALLA 4: ACTIVIDAD -->
